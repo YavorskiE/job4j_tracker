@@ -1,4 +1,4 @@
-package ru.jo4bj.oop;
+package ru.job4j.oop;
 
 public class Fox {
 

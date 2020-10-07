@@ -1,7 +1,4 @@
-package ru.jo4bj.oop;
-
-import static java.lang.Math.sqrt;
-import static java.lang.Math.pow;
+package ru.job4j.oop;
 
 public class Point {
 
