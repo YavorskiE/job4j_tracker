@@ -27,6 +27,7 @@ public class Doctor extends Profession{
         this.roomNumber = roomNumber;
     }
 
-    public Diagnosis heal(Pacient pacient) {
+//    public Diagnosis heal(Pacient pacient) {
+    public void heal(Pacient pacient) {
     }
 }
