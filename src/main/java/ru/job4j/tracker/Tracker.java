@@ -13,22 +13,38 @@ public class Tracker {
         return item;
     }
 
-    public Item findById(int id) {
-        Item rsl = null;
-        for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
+    private int indexOf(int id) {
+        int rsl = -1;
+        for(int index = 0; index < size; index++) {
+            if (items[index].getId() == id) {
+                rsl =  index;
                 break;
             }
         }
         return rsl;
     }
 
+//    public Item findById(int id) {
+//        Item rsl = null;
+//        for (int index = 0; index < size; index++) {
+//            Item item = items[index];
+//            if (item.getId() == id) {
+//                rsl = item;
+//                break;
+//            }
+//        }
+//        return rsl;
+//    }
+
+    public Item findById(int id) {
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+
     public Item[] findAll() {
-        Item[] itemsRes = new Item[items.length];
+        Item[] itemsRes = new Item[size];
         int count = 0;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < size; i++) {
             if (items[i] != null) {
                 itemsRes[count++] = items[i];
             }
@@ -37,13 +53,23 @@ public class Tracker {
     }
 
     public Item[] findByName(String key) {
-        Item[] itemsRes = new Item[items.length];
+        Item[] itemsRes = new Item[size];
         int count = 0;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < size; i++) {
             if (key.equals(items[i].getName())) {
                 itemsRes[count++] = items[i];
             }
         }
         return Arrays.copyOf(itemsRes, count);
+    }
+
+    public boolean replace(int id, Item item) {
+        int index = indexOf(id);
+        boolean res = index != -1;
+        if (res) {
+            item.setId(items[index].getId());
+            items[index] = item;
+        }
+        return res;
     }
 }
