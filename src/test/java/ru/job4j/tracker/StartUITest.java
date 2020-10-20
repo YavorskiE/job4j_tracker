@@ -70,9 +70,16 @@ public class StartUITest {
                 new Exit()
         };
         new StartUI(out).init(in, tracker, actions);
-        String message = out.toString();
-        String actual = message.split("\r\n")[4];
-        String expected = "Item{id=" + item.getId() + ", name='" + item.getName() + "'}";
+        String actual = out.toString();
+        String expected =
+                "Menu." + System.lineSeparator() +
+                "0. " + actions[0].name() + System.lineSeparator() +
+                "1. " + actions[1].name() + System.lineSeparator() +
+                actions[0].name() + System.lineSeparator() +
+                "Item{id=" + item.getId() + ", name='" + item.getName() + "'}" + System.lineSeparator() +
+                "Menu." + System.lineSeparator() +
+                "0. " + actions[0].name() + System.lineSeparator() +
+                "1. " + actions[1].name() + System.lineSeparator();
         assertThat(actual, is(expected));
     }
 
@@ -91,9 +98,16 @@ public class StartUITest {
                 new Exit()
         };
         new StartUI(out).init(in, tracker, actions);
-        String message = out.toString();
-        String actual = message.split("\r\n")[4];
-        String expected = "Item{id=" + items[1].getId() + ", name='" + items[1].getName() + "'}";
+        String actual = out.toString();
+        String expected =
+                "Menu." + System.lineSeparator() +
+                "0. " + actions[0].name() + System.lineSeparator() +
+                "1. " + actions[1].name() + System.lineSeparator() +
+                actions[0].name() + System.lineSeparator() +
+                "Item{id=" + items[1].getId() + ", name='" + items[1].getName() + "'}" + System.lineSeparator() +
+                "Menu." + System.lineSeparator() +
+                "0. " + actions[0].name() + System.lineSeparator() +
+                "1. " + actions[1].name() + System.lineSeparator();
         assertThat(actual, is(expected));
     }
 
@@ -112,9 +126,16 @@ public class StartUITest {
                 new Exit()
         };
         new StartUI(out).init(in, tracker, actions);
-        String message = out.toString();
-        String actual = message.split("\r\n")[4];
-        String expected = "Item{id=" + items[1].getId() + ", name='" + items[1].getName() + "'}";
+        String actual = out.toString();
+        String expected =
+                "Menu." + System.lineSeparator() +
+                "0. " + actions[0].name() + System.lineSeparator() +
+                "1. " + actions[1].name() + System.lineSeparator() +
+                actions[0].name() + System.lineSeparator() +
+                "Item{id=" + items[1].getId() + ", name='" + items[1].getName() + "'}" + System.lineSeparator() +
+                "Menu." + System.lineSeparator() +
+                "0. " + actions[0].name() + System.lineSeparator() +
+                "1. " + actions[1].name() + System.lineSeparator();
         assertThat(actual, is(expected));
     }
 }
