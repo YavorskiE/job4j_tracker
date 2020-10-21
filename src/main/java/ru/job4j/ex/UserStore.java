@@ -1,7 +1,5 @@
 package ru.job4j.ex;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
-
 public class UserStore {
 
     public static User findUser(User[] users, String login) throws UserNotFoundException {
