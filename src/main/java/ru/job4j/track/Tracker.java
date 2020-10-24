@@ -1,22 +1,22 @@
 package ru.job4j.track;
 
 public class Tracker {
-    private final Item[] items = new Item[100];
+    private final Item_old[] itemOlds = new Item_old[100];
     private int ids = 1;
     private int size = 0;
 
-    public Item add(Item item) {
-        item.setId(ids++);
-        items[size++] = item;
-        return item;
+    public Item_old add(Item_old itemOld) {
+        itemOld.setId(ids++);
+        itemOlds[size++] = itemOld;
+        return itemOld;
     }
 
-    public Item findById(int id) {
-        Item rsl = null;
+    public Item_old findById(int id) {
+        Item_old rsl = null;
         for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
+            Item_old itemOld = itemOlds[index];
+            if (itemOld.getId() == id) {
+                rsl = itemOld;
                 break;
             }
         }

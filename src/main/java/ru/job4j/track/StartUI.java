@@ -6,13 +6,13 @@ import java.time.format.DateTimeFormatter;
 public class StartUI {
 
     public static void main(String[] args) {
-        Item item = new Item();
+        Item_old itemOld = new Item_old();
 
-        LocalDateTime currentDateTime = item.getCreated();
+        LocalDateTime currentDateTime = itemOld.getCreated();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         String formattedDateTime = currentDateTime.format(formatter);
         System.out.println("Дата и время создания объекта " + formattedDateTime);
 
-        System.out.println(item);
+        System.out.println(itemOld);
     }
 }
