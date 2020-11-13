@@ -2,19 +2,19 @@ package ru.job4j.track;
 
 import java.time.LocalDateTime;
 
-public class Item {
+public class Item_old {
     private int id;
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
-    public Item() {
+    public Item_old() {
     }
 
-    public Item(int num) {
+    public Item_old(int num) {
         id = num;
     }
 
-    public Item(int num, String name) {
+    public Item_old(int num, String name) {
         id = num;
         this.name = name;
     }
