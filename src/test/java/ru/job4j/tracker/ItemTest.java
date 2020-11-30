@@ -21,13 +21,13 @@ public class ItemTest {
         item2.setId(2);
         item3.setId(3);
         item4.setId(4);
-        List<Item> input = Arrays.asList (
+        List<Item> input = Arrays.asList(
                 item2,
                 item3,
                 item1,
                 item4
         );
-        List<Item> expected = Arrays.asList (
+        List<Item> expected = Arrays.asList(
                 item1,
                 item2,
                 item3,
@@ -47,13 +47,13 @@ public class ItemTest {
         item2.setId(2);
         item3.setId(3);
         item4.setId(4);
-        List<Item> input = Arrays.asList (
+        List<Item> input = Arrays.asList(
                 item2,
                 item3,
                 item1,
                 item4
         );
-        List<Item> expected = Arrays.asList (
+        List<Item> expected = Arrays.asList(
                 item4,
                 item3,
                 item2,

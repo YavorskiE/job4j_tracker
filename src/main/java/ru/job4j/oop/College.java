@@ -1,7 +1,14 @@
 package ru.job4j.oop;
 
 public class College {
-    Freshman freshman = new Freshman();
-    Student student = freshman;
-    Object obj = freshman;
+    private Freshman freshman = new Freshman();
+    private Student student = freshman;
+
+    public Freshman getFreshman() {
+        return freshman;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
 }

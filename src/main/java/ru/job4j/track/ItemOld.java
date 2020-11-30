@@ -2,19 +2,19 @@ package ru.job4j.track;
 
 import java.time.LocalDateTime;
 
-public class Item_old {
+public class ItemOld {
     private int id;
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
-    public Item_old() {
+    public ItemOld() {
     }
 
-    public Item_old(int num) {
+    public ItemOld(int num) {
         id = num;
     }
 
-    public Item_old(int num, String name) {
+    public ItemOld(int num, String name) {
         id = num;
         this.name = name;
     }
@@ -35,14 +35,16 @@ public class Item_old {
         this.name = name;
     }
 
-    public LocalDateTime getCreated() { return created; }
+    public LocalDateTime getCreated() {
+        return created;
+    }
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", created=" + created +
-                '}';
+        return "Item{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", created=" + created
+                + '}';
     }
 }

@@ -14,8 +14,8 @@ public class ValidateInputTest {
                 new String[] {"555"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int Selected = input.askInt("Enter menu:");
-        assertThat(Selected, is(555));
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected, is(555));
     }
 
     @Test
@@ -25,18 +25,18 @@ public class ValidateInputTest {
                 new String[] {"One", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int Selected = input.askInt("Enter menu:");
-        assertThat(Selected, is(1));
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected, is(1));
     }
 
     @Test
     public void whenInvalidOutput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"One","1"}
+                new String[] {"One", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int Selected = input.askInt("Enter menu:");
+        int askIntelected = input.askInt("Enter menu:");
         String expected = "Please enter validate data again." + System.lineSeparator();
         assertThat(out.toString(), is(expected));
     }

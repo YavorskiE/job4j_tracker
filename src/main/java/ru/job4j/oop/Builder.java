@@ -1,11 +1,18 @@
 package ru.job4j.oop;
 
-public class Builder extends Engineer{
+public class Builder extends Engineer {
 
     private String specialization;
 
-    public Builder(String name, String surname, String ed, int birthday, String company, String position, int experience, String specialization) {
-        super(name, surname, ed, birthday, company, position, experience);
+//    public Builder(String name, String surname, String ed, int birthday, String company,
+//                   String position, int experience, String specialization) {
+//        super(name, surname, ed, birthday, company, position, experience);
+//        this.specialization = specialization;
+//    }
+
+    public Builder(String name, String surname, String ed, int birthday, Career career,
+                   String specialization) {
+        super(name, surname, ed, birthday, career);
         this.specialization = specialization;
     }
 

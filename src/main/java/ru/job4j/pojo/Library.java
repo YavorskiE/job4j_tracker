@@ -31,7 +31,8 @@ public class Library {
         for (int index = 0; index < books.length; index++) {
             bk = books[index];
             if ("Clean Code".equals(bk.getTitle())) {
-                System.out.println("Book \"" + bk.getTitle() + "\" has " + bk.getPages()  + " pages");
+                System.out.println(
+                        "Book \"" + bk.getTitle() + "\" has " + bk.getPages()  + " pages");
             }
         }
     }

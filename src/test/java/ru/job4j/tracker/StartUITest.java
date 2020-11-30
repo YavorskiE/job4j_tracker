@@ -33,7 +33,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[] {"0", "1", replacedName , "1"}
+                new String[] {"0", "1", replacedName, "1"}
         );
         List<UserAction> actions = List.of(
                 new EditAction(out),
@@ -76,14 +76,15 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         String actual = out.toString();
         String expected =
-                "Menu." + System.lineSeparator() +
-                "0. " + actions.get(0).name() + System.lineSeparator() +
-                "1. " + actions.get(1).name() + System.lineSeparator() +
-                actions.get(0).name() + System.lineSeparator() +
-                "Item{id=" + item.getId() + ", name='" + item.getName() + "'}" + System.lineSeparator() +
-                "Menu." + System.lineSeparator() +
-                "0. " + actions.get(0).name() + System.lineSeparator() +
-                "1. " + actions.get(1).name() + System.lineSeparator();
+
+                "Menu." + System.lineSeparator()
+                + "0. " + actions.get(0).name() + System.lineSeparator()
+                + "1. " + actions.get(1).name() + System.lineSeparator()
+                + actions.get(0).name() + System.lineSeparator()
+                + "Item{id=" + item.getId() + ", name='" + item.getName() + "'}"
+                + System.lineSeparator() + "Menu." + System.lineSeparator()
+                + "0. " + actions.get(0).name() + System.lineSeparator()
+                + "1. " + actions.get(1).name() + System.lineSeparator();
         assertThat(actual, is(expected));
     }
 
@@ -95,7 +96,7 @@ public class StartUITest {
         tracker.add(items[1]);
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0","2","1"}
+                new String[] {"0", "2", "1"}
         );
         List<UserAction> actions = List.of(
                 new FindIdAction(out),
@@ -104,14 +105,14 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         String actual = out.toString();
         String expected =
-                "Menu." + System.lineSeparator() +
-                        "0. " + actions.get(0).name() + System.lineSeparator() +
-                        "1. " + actions.get(1).name() + System.lineSeparator() +
-                        actions.get(0).name() + System.lineSeparator() +
-                        "Item{id=" + items[1].getId() + ", name='" + items[1].getName() + "'}" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. " + actions.get(0).name() + System.lineSeparator() +
-                        "1. " + actions.get(1).name() + System.lineSeparator();
+                "Menu." + System.lineSeparator()
+                + "0. " + actions.get(0).name() + System.lineSeparator()
+                + "1. " + actions.get(1).name() + System.lineSeparator()
+                + actions.get(0).name() + System.lineSeparator()
+                + "Item{id=" + items[1].getId() + ", name='" + items[1].getName() + "'}"
+                + System.lineSeparator() + "Menu." + System.lineSeparator()
+                + "0. " + actions.get(0).name() + System.lineSeparator()
+                + "1. " + actions.get(1).name() + System.lineSeparator();
         assertThat(actual, is(expected));
     }
 
@@ -123,7 +124,7 @@ public class StartUITest {
         tracker.add(items[1]);
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0","Second item","1"}
+                new String[] {"0", "Second item", "1"}
         );
         List<UserAction> actions = List.of(
                 new FindNameAction(out),
@@ -132,14 +133,14 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         String actual = out.toString();
         String expected =
-                "Menu." + System.lineSeparator() +
-                "0. " + actions.get(0).name() + System.lineSeparator() +
-                "1. " + actions.get(1).name() + System.lineSeparator() +
-                actions.get(0).name() + System.lineSeparator() +
-                "Item{id=" + items[1].getId() + ", name='" + items[1].getName() + "'}" + System.lineSeparator() +
-                "Menu." + System.lineSeparator() +
-                "0. " + actions.get(0).name() + System.lineSeparator() +
-                "1. " + actions.get(1).name() + System.lineSeparator();
+                "Menu." + System.lineSeparator()
+                + "0. " + actions.get(0).name() + System.lineSeparator()
+                + "1. " + actions.get(1).name() + System.lineSeparator()
+                + actions.get(0).name() + System.lineSeparator()
+                + "Item{id=" + items[1].getId() + ", name='" + items[1].getName() + "'}"
+                + System.lineSeparator() + "Menu." + System.lineSeparator()
+                + "0. " + actions.get(0).name() + System.lineSeparator()
+                + "1. " + actions.get(1).name() + System.lineSeparator();
         assertThat(actual, is(expected));
     }
 

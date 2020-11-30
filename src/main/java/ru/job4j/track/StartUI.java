@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class StartUI {
 
     public static void main(String[] args) {
-        Item_old itemOld = new Item_old();
+        ItemOld itemOld = new ItemOld();
 
         LocalDateTime currentDateTime = itemOld.getCreated();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");

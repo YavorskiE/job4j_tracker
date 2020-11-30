@@ -13,7 +13,7 @@ public class FactRec {
     }
 
     public static void main(String[] args) {
-        int rsl = calc (6);
+        int rsl = calc(6);
         System.out.println(rsl);
     }
 }
