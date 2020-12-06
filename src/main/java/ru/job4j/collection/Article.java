@@ -6,9 +6,13 @@ import java.util.Set;
 
 public class Article {
     public static boolean generateBy(String origin, String line) {
-        String regex = "[ ,.;:!?]";
-        Set<String> originSet = new HashSet<>(Arrays.asList(origin.split(regex)));
-        Set<String> lineSet = new HashSet<>(Arrays.asList(line.split(regex)));
-        return originSet.containsAll(lineSet);
+        String regex = "\\p{P}";
+        Set<String> set = new HashSet<>(Arrays.asList(origin.replaceAll(regex, "").split(" ")));
+        for (String txt : line.replaceAll(regex, "").split(" ")) {
+            if (!set.contains(txt)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
