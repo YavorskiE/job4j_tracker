@@ -12,13 +12,9 @@ public class AttachmentSort {
                 new Attachment("Attachment 3", 13)
         );
 
-        Comparator comparator =  new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                Attachment left = (Attachment) o1;
-                Attachment right = (Attachment) o2;
-                return left.getSize() - right.getSize();
-            }
+        Comparator<Attachment> comparator = (left, right) -> {
+            System.out.println("Compare - " + left.getSize() + " : " + right.getSize());
+            return left.getSize() - right.getSize();
         };
 
         attachments.sort(comparator);
