@@ -10,7 +10,7 @@ public class FI {
             return right.compareTo(left);
         };
 
-        Comparator<String> cmpDescSize = (left, right) -> {
+        Comparator<String> cmpDescSize = (String right, String left) -> {
             System.out.println("Comparing - " + left + " : " + right);
             return right.length() - left.length();
         };
