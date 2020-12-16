@@ -10,7 +10,7 @@ public class JobSorter {
         List<Job> jobs = Arrays.asList(
                 new Job("Fix bugs", 1),
                 new Job("Fix bugs", 4),
-                new Job("Fix bugs  ", 2),
+                new Job("Fix bugs", 2),
                 new Job("Impl task", 0),
                 new Job("Reboot server", 5)
         );
@@ -23,6 +23,11 @@ public class JobSorter {
                 .thenComparing(new JobDescByPriority())
                 .thenComparing(new JobDescByName());
         Collections.sort(jobs, comb);
+        System.out.println(jobs);
+        Comparator<Job> compareName = Comparator.comparing(Job::getName);
+        Comparator<Job> comparePriority = Comparator.comparing(Job::getPriority);
+        Comparator<Job> combine = compareName.thenComparing(comparePriority);
+        Collections.sort(jobs, combine);
         System.out.println(jobs);
     }
 }
