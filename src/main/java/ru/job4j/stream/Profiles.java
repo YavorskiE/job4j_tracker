@@ -8,6 +8,8 @@ public class Profiles {
         return profiles
                 .stream()
                 .map(Profile::getAddress)
+                .sorted((left, right) -> left.getCity().compareTo(right.getCity()))
+                .distinct()
                 .collect(Collectors.toList());
     }
 }
