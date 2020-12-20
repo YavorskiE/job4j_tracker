@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 
 import static org.hamcrest.core.Is.is;
@@ -59,6 +60,42 @@ public class SchoolTest {
         expected.add(new Student(20, "Student 2"));
         expected.add(new Student(30, "Student 3"));
         expected.add(new Student(40, "Student 4"));
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenConvertToMapSameScore() {
+        School sc = new School();
+        List<Student> studentsToMap = List.of(
+                new Student(30, "Student 1"),
+                new Student(30, "Student 2"),
+                new Student(30, "Student 3"),
+                new Student(40, "Student 4")
+        );
+        Map<String, Student> rsl = sc.convert(studentsToMap);
+        Map<String, Student> expected = Map.of(
+                "Student 1", new Student(30, "Student 1"),
+                "Student 2", new Student(30, "Student 2"),
+                "Student 3", new Student(30, "Student 3"),
+                "Student 4", new Student(40, "Student 4")
+        );
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenConvertToMapSameSurname() {
+        School sc = new School();
+        List<Student> studentsToMap = List.of(
+                new Student(10, "Student 1"),
+                new Student(20, "Student 1"),
+                new Student(30, "Student 1"),
+                new Student(40, "Student 4")
+        );
+        Map<String, Student> rsl = sc.convert(studentsToMap);
+        Map<String, Student> expected = Map.of(
+                "Student 1", new Student(10, "Student 1"),
+                "Student 4", new Student(40, "Student 4")
+        );
         assertThat(rsl, is(expected));
     }
 }
