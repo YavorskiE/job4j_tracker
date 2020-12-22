@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
-    public void addUser(User  user) {
+    public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
 
@@ -23,22 +23,32 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                return user;
-            }
-        }
-        return null;
+//        for (User user : users.keySet()) {
+//            if (user.getPassport().equals(passport)) {
+//                return user;
+//            }
+//        }
+//        return null;
+        return users.keySet()
+                .stream()
+                .filter(u -> u.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
-            List<Account> accounts = users.get(user);
-            int index = accounts.indexOf(new Account(requisite, 0));
-            if (index != -1) {
-                return accounts.get(index);
-            }
+//            List<Account> accounts = users.get(user);
+//            int index = accounts.indexOf(new Account(requisite, 0));
+//            if (index != -1) {
+//                return accounts.get(index);
+//            }
+            return users.get(user)
+                    .stream()
+                    .filter(a -> a.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         return null;
     }
