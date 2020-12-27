@@ -24,52 +24,22 @@ public class BankService {
     }
 
     public Optional<User> findByPassport(String passport) {
-//        for (User user : users.keySet()) {
-//            if (user.getPassport().equals(passport)) {
-//                return user;
-//            }
-//        }
-//        return null;
-//
-//        return users.keySet()
-//                .stream()
-//                .filter(u -> u.getPassport().equals(passport))
-//                .findFirst()
-//                .orElse(null);
-
-        Optional<User> rsl = Optional.empty();
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                rsl = Optional.of(user);
-                break;
-            }
-        }
-        return rsl;
+        return users.keySet()
+                .stream()
+                .filter(u -> u.getPassport().equals(passport))
+                .findFirst();
     }
 
     public Optional<Account> findByRequisite(String passport, String requisite) {
-//        User user = findByPassport(passport);
-//        if (user != null) {
-//            List<Account> accounts = users.get(user);
-//            int index = accounts.indexOf(new Account(requisite, 0));
-//            if (index != -1) {
-//                return accounts.get(index);
-//            }
-//            return users.get(user)
-//                    .stream()
-//                    .filter(a -> a.getRequisite().equals(requisite))
-//                    .findFirst()
-//                    .orElse(null);
-//        }
-//        return null;
         Optional<Account> rsl = Optional.empty();
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
-            for (Account account : users.get(user.get())) {
-                if (account.getRequisite().equals(requisite)) {
-                    rsl = Optional.of(account);
-                    break;
-                }
+            Optional<List<Account>> account = Optional.ofNullable(users.get(user.get()));
+            if (account.isPresent()) {
+                rsl = account.get()
+                        .stream()
+                        .filter(a -> a.getRequisite().equals(requisite))
+                        .findFirst();
             }
         }
         return rsl;
