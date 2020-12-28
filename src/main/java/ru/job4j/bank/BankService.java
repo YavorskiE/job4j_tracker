@@ -34,13 +34,10 @@ public class BankService {
         Optional<Account> rsl = Optional.empty();
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
-            Optional<List<Account>> account = Optional.ofNullable(users.get(user.get()));
-            if (account.isPresent()) {
-                rsl = account.get()
-                        .stream()
-                        .filter(a -> a.getRequisite().equals(requisite))
-                        .findFirst();
-            }
+            rsl = users.get(user.get())
+                    .stream()
+                    .filter(a -> a.getRequisite().equals(requisite))
+                    .findFirst();
         }
         return rsl;
     }
