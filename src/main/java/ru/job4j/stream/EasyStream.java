@@ -10,7 +10,7 @@ public class EasyStream {
 
     public static EasyStream of(List<Integer> list) {
         EasyStream easyStream = new EasyStream();
-        easyStream.str.addAll(list);
+        easyStream.str = list;
         return easyStream;
     }
 
